@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Tarea 1</title>
+    </head>
+    <body>
+        <h1>Laboratorio 1</h1>
+        
+        <form action="prog.php" method="post" name="formulario" id="formulario" 
+      onsubmit="return calcular()">
+    Primer n&uacute;mero: <input type="int" name="num1" value=""><br><br>
+    Operaci&oacute;n: <select name ="operacion">
+        <option>Sumar</option>
+        <option>Restar</option>
+        <option>Multiplicar</option>
+        <option>Dividir</option>
+    </select><br><br>
+   Segundo n&uacute;mero:   <input type="int" name="num2" value=""><br><br>
+   Resultado esperado: <input type="int" name="res" value=""><br><br>
+   
+   
+              <input type="button" value="  Calcular   " onclick = "calcular()">
+              <input type="button" value="  Otra vez   " onclick = "reset()">
+              
+    
+    <br><br><br><input type="text"  name="correccion" value="" readonly="readonly" style="border:none">
+</form>
+
+
+<script language="javascript">
+function calcular()
+{
+    var num1 = document.formulario.num1.value;
+    var num2 = document.formulario.num2.value;
+    var operacion = document.formulario.operacion.value;
+    var resultado = 0;
+   
+   if (operacion == "Sumar"){
+       resultado = parseInt(num1) + parseInt(num2);
+   }else if (operacion == "Restar"){
+       resultado = num1 - num2;
+   }else if (operacion == "Multiplicar"){
+       resultado = num1 * num2;
+   }else{
+       resultado = num1 / num2;
+   }
+   esCorrecto(resultado);
+}
+
+function esCorrecto(resTemp){
+    res = document.formulario.res.value;
+    
+    if (resTemp == res){
+        document.formulario.correccion.value = "¡CORRECTO!";
+    }else{
+        document.formulario.correccion.value = "¡INCORRECTO!";
+
+    }
+}
+
+</script>
+        
+    </body>
+</html>

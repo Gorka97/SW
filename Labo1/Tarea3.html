@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Tarea 3</title>
+    </head>
+    <body>
+        <h1>Laboratorio 1</h1>
+        
+        <form action="prog.php" method="post" name="formulario" id="formulario" 
+      onsubmit="return calcular()">
+    Primer n&uacute;mero: <input type="int" id="num1" value=""><br><br>
+    Operaci&oacute;n: <select id ="operacion">
+        <option>Sumar</option>
+        <option>Restar</option>
+        <option>Multiplicar</option>
+        <option>Dividir</option>
+    </select><br><br>
+   Segundo n&uacute;mero:   <input type="int" id="num2" value=""><br><br>
+   Resultado esperado: <input type="int" id="res" value=""><br><br>
+   
+   <input type="button" value="  Calcular   " id = "calcular">
+            
+              <input type="button" value="  Otra vez   " onclick = "reset()">
+              
+    
+    <br><br><br><input type="text"  id="correccion" value="" readonly="readonly" style="border:none">
+</form>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.16.3/math.min.js"></script>
+
+<script>
+   
+	$("#calcular").click (function(){
+    
+    var num1 = $("#num1").val();
+    var num2 = $("#num2").val();
+    var operacion = $("#operacion").val();
+    var resultado = 0;
+   if (operacion == "Sumar"){
+       resultado = math.chain(num1).add(num2).done();
+   }else if (operacion == "Restar"){
+       resultado = math.chain(num1).subtract(num2).done();
+   }else if (operacion == "Multiplicar"){
+       resultado = math.chain(num1).multiply(num2).done();
+   }else{
+       resultado = math.chain(num1).divide(num2).done();
+   }
+   esCorrecto(resultado);
+});
+function esCorrecto(resTemp){
+    res = $("#res").val();
+    if (resTemp == res){
+        $("#correccion").val("¡CORRECTO!");
+    }else{
+        $("#correccion").val("¡INCORRECTO!"); 
+
+    }
+
+
+}
+</script>
+
+    
+    </body>
+</html>
