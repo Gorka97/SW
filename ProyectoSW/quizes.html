@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="tipo_contenido" content="text/html;" http-equiv="content-type" charset="utf-8">
+	<title>Preguntas</title>
+    <link rel='stylesheet' type='text/css' href='estilos/style.css' />
+	<link rel='stylesheet' 
+		   type='text/css' 
+		   media='only screen and (min-width: 530px) and (min-device-width: 481px)'
+		   href='estilos/wide.css' />
+	<link rel='stylesheet' 
+		   type='text/css' 
+		   media='only screen and (max-width: 480px)'
+		   href='estilos/smartphone.css' />
+  </head>
+  <body>
+  <div id='page-wrap'>
+	<header class='main' id='h1'>
+		<span class="right"><a href="registro">Registrarse</a></span>
+      		<span class="right"><a href="login">Login</a></span>
+      		<span class="right" style="display:none;"><a href="/logout">Logout</a></span>
+		<h2>Quiz: el juego de las preguntas</h2>
+    </header>
+	<nav class='main' id='n1' role='navigation'>
+		<span><a href='layout.html'>Inicio</a></spam>
+		<span><a href='quizes'>Preguntas</a></spam>
+		<span><a href='creditos.html'>Creditos</a></spam>
+	</nav>
+    <section class="main" id="s1">
+    
+	<div>
+        <h1>Cuestionario</h1>
+        
+        <form action="prueba.php" method="post" name="formulario" id="formulario" enctype="multipart/form-data" onSubmit="return comprobar()">
+    Email: <input type="text" id="email"  value=""><br><br>
+    Pregunta:   <input type="text" id="pregunta" value=""><br><br>
+   Respuesta Correcta:   <input type="text" id="resCor" value=""><br><br>
+   Respuesta Incorrecta 1: <input type="text" id="resIn1"value=""><br><br>
+    Respuesta Incorrecta 2: <input type="text" id="resIn2"  value=""><br><br>
+     Respuesta Incorrecta 3: <input type="text" id="resIn3"  value=""><br><br>
+    Dificultad (1-5): <input type="text" id="dificultad"  value=""><br><br>
+    Tema: <input type="text" id="tema"  value="">
+    <br><br>
+    <input type ="file" name="imagen" id="imagen"/>
+   <br />
+   <img id="imgSalida" width="10%" height="10%" src="" />
+   <br><br>
+   <input type="submit" value="  Enviar   " id = "enviar">
+	</form>
+	</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    function comprobar(){
+        var re = new RegExp("[1-5]");
+        
+        if ($("#email").val() == ""){
+            alert("Debe rellenar todos los campos importantes");
+			return false;
+        }
+        else if ($("#pregunta").val() == ""){
+            alert("Debe rellenar todos los campos importantes");
+			return false;
+        }
+        else if ($("#resCor").val() == ""){
+            alert("Debe rellenar todos los campos importantes");
+			return false;
+        }
+        else if ($("#resIn1").val() == ""){
+            alert("Debe rellenar todos los campos importantes");
+			return false;
+        }
+        else if ($("#resIn2").val() == ""){
+            alert("Debe rellenar todos los campos importantes");
+			return false;
+        }
+        else if ($("#resIn3").val() == ""){
+            alert("Debe rellenar todos los campos importantes");
+			return false;
+        }
+        else if ($("#dificultad").val() == ""){
+            alert("Debe rellenar todos los campos importantes");
+			return false;
+        }
+		else if ($("#tema").val() == ""){
+            alert("Debe rellenar todos los campos importantes");
+			return false;
+        }
+        else if (!re.test($("#dificultad").val()) || $("#dificultad").val().length >= 2){
+            alert("La dificultad debe ser un numero de 1 a 5");
+			return false;
+        }
+        else if ($("#pregunta").val().length < 10){
+            alert("La pregunta deberá tener al menos 10 caracteres");
+			return false;
+        }
+         else if (!comprobarmail($("#email").val())){
+            alert("El email introducido no es correcto");
+			return false;
+        }else{
+			return true;
+    }
+	}
+	function comprobarmail(mail){
+		var reMail =/^(([a-z]{1,})+([0-9]{3}))+@ikasle\.ehu\.+(es|eus)$/;
+		var h = reMail.test(mail);
+		alert(mail);
+		alert(h);
+		return h;
+	}
+</script>
+<script>
+function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#imgSalida').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imagen").change(function(){
+    readURL(this);
+});
+</script>
+
+    </body>
+</html>
+
