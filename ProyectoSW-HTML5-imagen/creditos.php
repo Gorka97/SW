@@ -22,8 +22,8 @@
 		<h2>Quiz: el juego de las preguntas</h2>
     </header>
 	<nav class='main' id='n1' role='navigation'>
-		<span><a href='layout.html' id="inicio">Inicio</a></spam>
-		<span><a href='creditos.html'id="creditos">Creditos</a></spam>
+		<span><a href='layout.php' id="inicio">Inicio</a></spam>
+		<span><a href='creditos.php'id="creditos">Creditos</a></spam>
 		<span style="display:none;" id='showInsertar'> <a id ="insertar" href='insertarPregunta.php'>Insertar preguntas</a> </spam>
 		<span style="display:none;" id='showPreguntas'> <a id ="preguntas" href='verPreguntas.php'>Ver preguntas</a> </spam>
 		
@@ -31,15 +31,15 @@
     <section class="main" id="s1">
     
 	<div>
-	   <h1>Créditos</h1>
+	   <h1>CrÃ©ditos</h1>
         
         <form action="prog.php" method="post" name="formulario" id="formulario" ">
     Nombres:
     <ul>
-        <li> Iñigo Libano
+        <li> IÃ±igo Libano
         <li> Gorka Arce
     </ul>
-    Especialidad: Ingeniería del Software<br>
+    Especialidad: IngenierÃ­a del Software<br>
     <img src="https://www.kasandbox.org/programming-images/animals/birds_rainbow-lorakeets.png" width="200px"> 
     <footer id='f1'>
 		<p><a id="volver" href="layout.php">Volver a inicio</a></p>
