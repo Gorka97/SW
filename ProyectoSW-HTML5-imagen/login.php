@@ -11,12 +11,12 @@
 
 <?php
 	if (isset($_POST['email'])){
-$mysql= mysqli_connect("localhost","root","","quiz") or die(mysql_error());
+$mysql= mysqli_connect("localhost","id2956013_root","********","id2956013_quiz") or die(mysql_error());
 $email=$_POST['email']; $pass=$_POST['pass'];
 $usuarios = mysqli_query( $mysql,"select * from usuarios where email='$email' and
 pass='$pass'");
 $cont= mysqli_num_rows($usuarios);
 mysqli_close( $mysql);
-if($cont==1){ header("Location: layout.php?email=$email");}
+if($cont==1){ echo "<script>window.location.assign('layout.php?email=$email');</script>";}
 else {echo ("Par&aacute;metros de login incorrectos<p>");}}
 ?>	
