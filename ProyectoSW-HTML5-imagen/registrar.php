@@ -78,10 +78,10 @@ function resetImagen(){
 
 <?php
 if (isset($_POST['email'])){
-	$link = mysqli_connect("localhost","root","","quiz");
+	$link = mysqli_connect("localhost","id2956013_root","rootroot","id2956013_quiz");
 	$imagen = $_FILES['imagen']['name'];
 	if ($_FILES["imagen"]["tmp_name"]!=NULL){
-		$carpeta = $_SERVER['DOCUMENT_ROOT'].'ProyectoSW-HTML5-imagen/fotos/';
+		$carpeta = $_SERVER['DOCUMENT_ROOT'].'/ProyectoSW-HTML5-imagen2/ProyectoSW-HTML5-imagen/fotos/';
 		move_uploaded_file($_FILES["imagen"]["tmp_name"],$carpeta.$imagen);
 	}
 
@@ -108,7 +108,7 @@ if (isset($_POST['email'])){
 						}
 						echo "Registrado correctamente";
 						$email = $_POST["email"];
-						echo (header("Location: layout.php?email=$email"));
+						echo "<script>window.location.assign('layout.php?email=$email');</script>";
 				}
 			}
 		}
