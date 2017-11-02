@@ -78,7 +78,7 @@ function resetImagen(){
 
 <?php
 if (isset($_POST['email'])){
-	$link = mysqli_connect("localhost","id2956013_root","rootroot","id2956013_quiz");
+	$link = mysqli_connect("localhost","id2956013_root","********","id2956013_quiz");
 	$imagen = $_FILES['imagen']['name'];
 	if ($_FILES["imagen"]["tmp_name"]!=NULL){
 		$carpeta = $_SERVER['DOCUMENT_ROOT'].'/ProyectoSW-HTML5-imagen2/ProyectoSW-HTML5-imagen/fotos/';
