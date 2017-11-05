@@ -88,6 +88,8 @@ echo "<script> $('#inicio').attr('href','layout.php?email=$email'); $('#creditos
 echo "<script>$('#showInsertar').show(); $('#showPreguntas').show();$('#logout').show();$('#login').hide();$('#registrar').hide();</script>";
 
 echo "<script> $('#email').attr('value','$email');</script>";
+echo "<script> $('#formulario').attr('action','insertarPregunta.php?email=".$email."');</script>";
+
 
 
 }
