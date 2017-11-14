@@ -1,6 +1,6 @@
 <?php
 	if (isset($_POST['dificultad'])){
-	$link = mysqli_connect("localhost","root","","quiz");
+	$link = mysqli_connect("localhost","id2956013_root","********","id2956013_quiz");
 
 	if (!preg_match("/(([a-z]{1,})+([0-9]{3}))+@ikasle\.ehu\.+(es|eus)\b/",$_POST['email'])){
 		echo "Email incorrecto";	
