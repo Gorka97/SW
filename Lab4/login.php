@@ -11,7 +11,7 @@
 
 <?php
 	if (isset($_POST['email'])){
-$mysql= mysqli_connect("localhost","id2956013_root","rootroot","id2956013_quiz") or die(mysql_error());
+$mysql= mysqli_connect("localhost","id2956013_root","********","id2956013_quiz") or die(mysql_error());
 $email=$_POST['email']; $pass=$_POST['pass'];
 $usuarios = mysqli_query( $mysql,"select * from usuarios where email='$email' and
 pass='$pass'");
