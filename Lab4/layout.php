@@ -26,6 +26,7 @@
 		<span><a href='creditos.php' id = "creditos">Creditos</a></spam>
 		<span style="display:none;" id='showInsertar'><a id ="insertar" href='insertarPregunta.php'>Insertar preguntas</a> </spam>
 		<span style="display:none;" id='showPreguntas'><a id ="preguntas" href='verPreguntas.php'>Ver preguntas</a> </spam>
+		<span style="display:none;" id='showGestionar'><a id ="gestionar" href='gestionPreguntas.php'>Gestionar preguntas</a> </spam>
 		
 	</nav>
     <section class="main" id="s1">
@@ -46,10 +47,11 @@
 $email = $_GET["email"];
 if(isset($email)){
 echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>';
-echo "<script>$('#showInsertar').show(); $('#showPreguntas').show();$('#logout').show();$('#login').hide();$('#registrar').hide();</script>";
+echo "<script>$('#showInsertar').show(); $('#showPreguntas').show();$('#logout').show();$('#login').hide();$('#registrar').hide(); $('#showGestionar').show();</script>";
 echo "<script> $('#inicio').attr('href','layout.php?email=$email'); $('#creditos').attr('href','creditos.php?email=$email') </script>";
 echo "<script> $('#insertar').attr('href','insertarPregunta.php?email=$email'); $('#preguntas').attr('href','verPreguntas.php?email=$email')</script>";
 echo "<script> $('#s1').text('Bienvenido $email')</script>";
+echo "<script> $('#gestionar').attr('href','gestionPreguntas.php?email=$email');</script>";
 }
 
 ?>
