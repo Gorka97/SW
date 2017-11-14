@@ -1,0 +1,57 @@
+<html>
+<body>
+<script type="text/javascript" src='https://code.jquery.com/jquery-3.2.1.js'></script>
+<form action="">
+Introduce correo electronico: <br/>
+<input type="text" id="correo"/><br/>
+Nombre: <br/>
+<input type="text" id="nombre" readonly/><br/>
+Primer apellido: <br/>
+<input type="text" id="apellido1" readonly/><br/>
+Segundo apellido: <br/>
+<input type="text" id="apellido2" readonly/><br/>
+Telefono: <br/>
+<input type="text" id="telefono" readonly/><br/>
+<input type="button" id="boton" value="Autocompletar"/>
+<br/><br/><br/>
+<label id="error"/>
+</form>
+<script type="text/javascript">
+	$(document).ready(function() {
+		function reset(){
+			$('#nombre').val('');
+			$('#apellido1').val('');
+			$('#apellido2').val('');
+			$('#telefono').val('');
+		}
+		$('#boton').click(function(){
+			var correo = $('#correo').val();
+			$.get('usuarios.xml', function(d){
+				var usuarios = $(d).find('usuario');
+				var correos = $(d).find('email');
+				var nombres = $(d).find('nombre');
+				var apellidos1 = $(d).find('apellido1');
+				var apellidos2 = $(d).find('apellido2');
+				var telefonos = $(d).find('telefono');
+				var esta = false;
+				for (var i = 0; i < usuarios.length; i++){
+					if (correo == correos[i].childNodes[0].nodeValue){
+						esta = true;
+						$('#nombre').val(nombres[i].childNodes[0].nodeValue);
+						$('#apellido1').val(apellidos1[i].childNodes[0].nodeValue);
+						$('#apellido2').val(apellidos2[i].childNodes[0].nodeValue);
+						$('#telefono').val(telefonos[i].childNodes[0].nodeValue);
+					}
+				}
+				if (!esta){
+					$('#error').text('Ese alumno no existe, prueba de nuevo');
+					reset();
+				}else{
+					$('#error').text('');
+				}
+			});
+		});
+	});
+	</script>
+</body>
+</html> 
