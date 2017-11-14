@@ -43,7 +43,6 @@
    <br />
    <img id="imgSalida" width="10%" height="10%" src="" />
    <br><br>
-   <input type="submit" value="  Enviar   " id = "enviar">
    <input type='reset' class="boton" id ="reset">
    	<input type="button" value="verPreguntas" onClick="verPreguntas()">
 	<input type="button" value="Insertar Pregunta" onClick="insertarPregunta()">
